@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>修改</title>
+</head>
+<body>
+	<div style="margin: 0px auto; width: 500px">
+		<form action="updateCategory" method="post">
+			name: <input name="name" th:value="${cs.name}" /> <br></br>
+			<input name="id" type="hidden" th:attr="value=${cs.id}" />
+			<button type="submit">提交</button>
+
+		</form>
+	</div>
+
+</body>
+</html>

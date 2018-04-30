@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>Insert title here</title>
+</head>
+<body>
+	<div style="width: 500px; margin: 20px auto; text-align: center">
+		<table align='center' border='1' cellspacing='0'>
+			<tr>
+				<th>id</th>
+				<th>name</th>
+				<th>修改</th>
+				<th>删除</th>
+			</tr>
+			<tr th:each="p:${page.list}">
+				<td th:text="${p.id}"></td>
+				<td th:text="${p.name}"></td>
+				<td><a th:href="@{editCategory(id=${p.id})}">修改</a></td>
+				<td><a th:href="@{delCategory(id=${p.id})}">删除</a></td>
+			</tr>
+		</table>
+		<br></br>
+		<div>
+			<a href="?start=1">[首 页]</a> <a th:href="@{?(start=${page.pageNum-1})}">[上一页]</a>
+			<a th:href="@{?(start=${page.pageNum+1})}">[下一页]</a> <a
+				th:href="@{?(start=${page.pages})}">[末 页]</a>
+		</div>
+		<form action="addCategory" method="post">
+
+			name: <input name="name" /> <br></br>
+			<button type="submit" >提交</button>
+
+		</form>
+	</div>
+</body>
+</html>
